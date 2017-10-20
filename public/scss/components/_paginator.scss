@@ -16,6 +16,11 @@
         cursor: pointer;
         text-decoration: none;
 
+        &.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
         &:hover {
             background-color: $accent;
             color: $background;

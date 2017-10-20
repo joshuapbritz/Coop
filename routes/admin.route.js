@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var database = require('../database/dbo');
 var db = database.connectTo('users');
+var articles = database.connectTo('articles');
 var fs = require('fs');
 var auth = require('../auth');
 
@@ -24,5 +25,28 @@ router.get('/', function(req, res, next) {
         res.redirect('/login');
     }
 });
+
+router.post('/news', function(req, res) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var article = {
+            title: req.body.title,
+            author: req.body.author,
+            body: format(req.body.body),
+        };
+        var done = articles.create(article);
+        if (done) {
+            res.redirect('/news');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+function format(para) {
+    return para.replace(/(.+)/gi, '<p>$1</p>');
+}
 
 module.exports = router;

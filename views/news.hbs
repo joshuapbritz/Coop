@@ -1,34 +1,45 @@
 <div class="pager">
-    <a href="/news" class="last">
-        <i class="material-icons">arrow_back</i>
+    {{#if hasLast}}
+    <a href="/news/{{lastPage}}" class="last">
+    {{else}}
+    <a class="last disabled">
+    {{/if}}
+    <i class="material-icons">arrow_back</i>
     </a>
-    <a href="/news" class="next">
-        <i class="material-icons">arrow_forward</i>
+    {{#if hasNext}}
+    <a href="/news/{{nextPage}}" class="next">
+    {{else}}
+    <a class="next disabled">
+    {{/if}}
+    <i class="material-icons">arrow_forward</i>
     </a>
 </div>
 
 <div class="home-articles">
+    {{#each data.records}}
     <div class="container">
-        <a href="#" class="article-item" style="background-image:url('/images/art_1.jpeg')">
+        <a href="/news/{{this.id}}" class="article-item" style="background-image:url('/images/art_1.jpeg')">
             <div class="title">
-                <h2>Test Articles</h2>
+                <h2>{{this.title}}</h2>
             </div>
         </a>
     </div>
-    <div class="container">
-        <a href="#" class="article-item" style="background-image:url('/images/art_2.jpeg')">
-            <div class="title">
-                <h2>Test Articles</h2>
-            </div>
-        </a>
-    </div>
+    {{/each}}
 </div>
 
 <div class="pager">
-    <a href="/news" class="last">
-        <i class="material-icons">arrow_back</i>
+    {{#if hasLast}}
+    <a href="/news/{{lastPage}}" class="last">
+    {{else}}
+    <a class="last disabled">
+    {{/if}}
+    <i class="material-icons">arrow_back</i>
     </a>
-    <a href="/news" class="next">
-        <i class="material-icons">arrow_forward</i>
+    {{#if hasNext}}
+    <a href="/news/{{nextPage}}" class="next">
+    {{else}}
+    <a class="next disabled">
+    {{/if}}
+    <i class="material-icons">arrow_forward</i>
     </a>
 </div>

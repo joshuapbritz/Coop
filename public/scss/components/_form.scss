@@ -26,3 +26,18 @@ textarea {
     height: 150px;
     resize: none;
 }
+
+.reflect-input {
+    display: block;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: solid 2px #bbb;
+    transition: ease 250ms;
+    font-size: 17px;
+    color: #666666;
+
+    &:focus {
+        border-color: map-get($themeColors, info);
+    }
+}
