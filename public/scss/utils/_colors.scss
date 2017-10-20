@@ -7,8 +7,8 @@ $main: $darkLiver;
 $accent: $lightMossGreen;
 
 $themeColors: (
-    primary: #5118d6,
-    accent: #f56725,
+    primary: $main,
+    accent: $accent,
     alert: #ff6347,
     info: #289296,
     warning: #eea916,
