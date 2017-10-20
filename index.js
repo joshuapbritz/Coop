@@ -40,13 +40,10 @@ app.use('/about', router.about);
 app.use('/contact', router.contact);
 app.use('/api', router.api);
 app.use('/account', router.users);
-<<<<<<< HEAD
 app.use('/news', router.news);
 app.use('/admin', router.admin);
-=======
 app.use('/resources', router.resources);
 app.use('/teachers', router.teachers);
->>>>>>> d192bef64b7642224bc1714692a89409229769b5
 
 // Start the server
 var port = process.env.PORT || 4500;
