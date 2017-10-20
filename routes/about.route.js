@@ -3,7 +3,7 @@ var router = express.Router();
 
 // GET route for reading data
 router.get('/', function(req, res, next) {
-    res.render('about', { title: 'About' });
+    res.render('about', { title: 'About Grace Co-Op' });
 });
 
 router.get('/test', function(req, res, next) {
