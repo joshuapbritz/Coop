@@ -1,4 +1,12 @@
 @import 'utils/colors';
 
+//Grid
+$grid_sizes: (2, 3, 4, 6, 8, 9, 10, 12) !default;
+
+//Breakpoints
+$small: 650px;
+$medium: 850px;
+$large: 1100px;
+
 $fontName: 'Josefin Slab', serif;
 
