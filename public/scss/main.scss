@@ -4,6 +4,8 @@
 @import 'components/navbar';
 @import 'components/form';
 @import 'components/editor';
+@import 'components/grid';
+@import 'components/footer';
 
 .login {
     width: 100%;
@@ -78,4 +80,126 @@
         margin-bottom: 30px; 
     }
 
+}
+
+.home-title {
+    width: 100%;
+    height: auto;
+    background-image: url('../images/home.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 10% 15%;
+
+    .card {
+        width: 100%;
+        height: 100%;
+        padding: 50px 60px;
+        background-color: $background;
+        text-align: center;
+
+        h1 {
+            font-size: 5rem;
+        }
+    }
+}
+
+.about-us {
+    width: 100%;
+    height: auto;
+    padding: 45px 0;
+    background-color: $backgroundDark;
+    border-top: solid 5px $accent;
+    color: $background;
+    p {
+        padding: 15px 0;
+        font-size: 20px;
+    }
+}
+
+.home-articles {
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+    background-color: $background;
+
+    .article-item {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background-position: center center;
+        background-size: cover;
+        display: block;
+        text-decoration: none;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1) 600ms;
+        overflow: hidden;
+        margin: 20px 0;
+
+        &:hover {
+            .title {
+                transform: translate(0, 0);
+            }
+        }
+
+        .title {
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            width: auto;
+            height: auto;
+            padding: 5px 15px;
+            background-color: $background;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1) 200ms;
+            transform: translate(100%, 200%);
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.home-quote {
+    width: 100%;
+    height: auto;
+    padding: 10% 15%;
+    background-color: $accent;
+
+    .card {
+        width: 100%;
+        height: 400px;
+        background-color: $background;
+
+        .image {
+            width: 50%;
+            height: 100%;
+            background-image: url('../images/quote.jpeg');
+            background-size: cover;
+            float: left;
+        }
+
+        .quote {
+            width: 50%;
+            height: 100%;
+            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .content {
+                width: 80%;
+                height: auto;
+
+                span {
+                    font-size: 2.5rem;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
 }

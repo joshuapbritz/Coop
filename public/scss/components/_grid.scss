@@ -1,0 +1,44 @@
+@import 'variables';
+
+.grid,
+.grid-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.grid {
+    padding: 14px calc(7rem - 14px);
+
+    @media screean and (max-width: $medium) {
+        padding: 14px;
+    }
+}
+
+.grid-fluid {
+    padding: 14px;
+}
+
+.row {
+    @each $size in $grid_sizes {
+        $oneWidth: (100 / $size);
+        @for $i from 1 through $size {
+            $width: ($oneWidth * $i) * 1%;
+            .col-#{$i}-of-#{$size} {
+                /* This column will be #{$i + '/' + $size} the size of the screen */
+                margin: 10px;
+                float: left;
+                width: calc(#{$width} - 20px);
+
+                @media screen and (max-width: 830px) {
+                    width: calc(100% - 20px);
+                }
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
