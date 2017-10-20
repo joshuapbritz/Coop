@@ -4,7 +4,7 @@ var db = database.connectTo('users');
 
 var getAuth = function(uid) {
     if (uid) {
-        var user = db.findId(uid);
+        var user = db.findOne(e => e.password === uid);
         if (user) {
             return true;
         } else {

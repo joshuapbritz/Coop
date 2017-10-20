@@ -4,6 +4,8 @@ var contact = require('./routes/contact.route');
 var api = require('./routes/api.route');
 var users = require('./routes/user.route');
 var auth = require('./routes/auth.route');
+var admin = require('./routes/admin.route');
+var news = require('./routes/news.route');
 
 module.exports = {
     home: home,
@@ -12,4 +14,6 @@ module.exports = {
     api: api,
     users: users,
     auth: auth,
+    news: news,
+    admin: admin,
 };

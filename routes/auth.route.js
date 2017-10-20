@@ -40,10 +40,15 @@ router.post('/login', function(req, res) {
     var loggedIn = auth.login(u, p);
     if (loggedIn) {
         req.session.Uid = loggedIn.password;
-        res.redirect('/');
+        res.redirect('/admin');
     } else {
         res.redirect('/login');
     }
+});
+
+router.get('/logout', function(req, res) {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;

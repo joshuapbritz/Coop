@@ -11,6 +11,16 @@ var app = express();
 // Manage CORS
 app.use(conf.cors);
 
+app.use(
+    expsession({
+        secret: 'Ice Cream Is Happiness',
+        resave: true,
+        saveUninitialized: false,
+        cookie: { maxAge: 1800000 },
+        store: new FileStore(),
+    })
+);
+
 // Parse http requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,6 +40,8 @@ app.use('/about', router.about);
 app.use('/contact', router.contact);
 app.use('/api', router.api);
 app.use('/account', router.users);
+app.use('/news', router.news);
+app.use('/admin', router.admin);
 
 // Start the server
 var port = process.env.PORT || 4500;

@@ -6,6 +6,7 @@
 @import 'components/editor';
 @import 'components/grid';
 @import 'components/footer';
+@import 'components/paginator';
 
 .login {
     width: 100%;
@@ -201,5 +202,18 @@
             display: table;
             clear: both;
         }
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background-color: $backgroundDark;
+
+    a {
+        color: #ffffff;
     }
 }

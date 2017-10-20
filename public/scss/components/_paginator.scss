@@ -1,0 +1,24 @@
+.pager {
+    width: 200px;
+    height: 60px;
+    margin: 50px auto;
+    
+    .last,
+    .next {
+        width: 90px;
+        height: 50px;
+        margin: 5px;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: solid 1px $accent;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $accent;
+            color: $background;
+        }
+    }
+}
