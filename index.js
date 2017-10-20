@@ -30,6 +30,8 @@ app.use('/about', router.about);
 app.use('/contact', router.contact);
 app.use('/api', router.api);
 app.use('/account', router.users);
+app.use('/resources', router.resources);
+app.use('/teachers', router.teachers);
 
 // Start the server
 var port = process.env.PORT || 4500;
