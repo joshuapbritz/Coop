@@ -1,13 +1,13 @@
 <div class="pager">
-    {{#if hasLast}}
-    <a href="/news/{{lastPage}}" class="last">
+    {{#if data.hasLast}}
+    <a href="/news?page={{data.lastPage}}" class="last">
     {{else}}
     <a class="last disabled">
     {{/if}}
     <i class="material-icons">arrow_back</i>
     </a>
-    {{#if hasNext}}
-    <a href="/news/{{nextPage}}" class="next">
+    {{#if data.hasNext}}
+    <a href="/news?page={{data.nextPage}}" class="next">
     {{else}}
     <a class="next disabled">
     {{/if}}
@@ -28,15 +28,15 @@
 </div>
 
 <div class="pager">
-    {{#if hasLast}}
-    <a href="/news/{{lastPage}}" class="last">
+    {{#if data.hasLast}}
+    <a href="/news?page={{data.lastPage}}" class="last">
     {{else}}
     <a class="last disabled">
     {{/if}}
     <i class="material-icons">arrow_back</i>
     </a>
-    {{#if hasNext}}
-    <a href="/news/{{nextPage}}" class="next">
+    {{#if data.hasNext}}
+    <a href="/news?page={{data.nextPage}}" class="next">
     {{else}}
     <a class="next disabled">
     {{/if}}

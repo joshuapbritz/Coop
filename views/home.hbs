@@ -25,20 +25,15 @@
 </div>
 
 <div class="home-articles">
+    {{#each articles}}
     <div class="container">
         <a href="#" class="article-item" style="background-image:url('/images/art_1.jpeg')">
             <div class="title">
-                <h2>Test Articles</h2>
+                <h2>{{this.title}}</h2>
             </div>
         </a>
     </div>
-    <div class="container">
-        <a href="#" class="article-item" style="background-image:url('/images/art_2.jpeg')">
-            <div class="title">
-                <h2>Test Articles</h2>
-            </div>
-        </a>
-    </div>
+    {{/each}}
     <br>
     <div class="container padded center-text">
         <a href="/news" class="button primary huge">Read More</a>
