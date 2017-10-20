@@ -1,0 +1,23 @@
+{
+  "name": "95tees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "watch": "nodemon",
+    "sass": "sass --w public/scss:public/css --style compressed",
+    "type": "tsc --w public/ts/index.ts --outDir public/js --target ES5"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-cors": "0.0.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "session-file-store": "^1.1.2"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MVC App</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <nav class="navigation">
+        <a class="logo" href="/">MVC Starter</a>
+
+        <div class="nav">
+            <a href="/">home</a>
+            <a href="/about">about</a>
+            <a href="/contact">contact</a>
+            <a href="/api">api</a>
+        </div>
+
+        <div class="responsive-nav">
+            <i class="material-icons">menu</i>
+            <div class="dropdown">
+                <a href="/" class="item">Home</a>
+                <a href="/about" class="item">About</a>
+                <a href="/contact" class="item">Contact</a>
+                <a href="/api" class="item">Api</a>
+            </div>
+        </div>
+    </nav>
+    {{!All pages are rendered in this tag}} {{{body}}} {{!DO NOT REMOVE}}
+
+    <script src="/js/index.js" type="text/javascript"></script>
+</body>
+
+</html>

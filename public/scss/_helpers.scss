@@ -1,0 +1,30 @@
+.container {
+    width: 90%;
+    margin: auto;
+    height: auto;
+
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.center-text {
+    text-align: center !important;
+}
+
+.block {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    margin: 20px auto;
+
+    p {
+        letter-spacing: 1px;
+        font-size: 15px;
+        color: #333333;
+    }
+}

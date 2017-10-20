@@ -1,0 +1,28 @@
+.control {
+    width: 100%;
+    height: auto;
+    padding: 15px 5px;
+}
+
+input:not([type='checkbox']):not([type='radio']),
+textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: solid 2px #bbb;
+    transition: ease 250ms;
+    font-size: 17px;
+
+    &:focus {
+        border-color: map-get($themeColors, info);
+    }
+}
+
+input:not([type='checkbox']):not([type='radio']) {
+    height: 40px;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}

@@ -1,0 +1,10 @@
+// Setup Session Storage
+// app.use(
+//     expsession({
+//         secret: 'Ice Cream Is Happiness',
+//         resave: true,
+//         saveUninitialized: false,
+//         cookie: { maxAge: 1800000 },
+//         store: new FileStore(),
+//     })
+// );
