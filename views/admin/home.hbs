@@ -2,9 +2,12 @@
 <h2>{{user.email}}</h2>
 
 <div class="container">
-    <form action="/admin/news" method="post" class="form">
+    <form action="/admin/news" method="post" class="form" enctype="multipart/form-data">
         <div class="control">
             <input type="text" name="title" placeholder="Title">
+        </div>
+        <div class="control">
+            <input type="file" placeholder="image" name="upload">
         </div>
         <div class="control">
             <span class="reflect-input">An article by {{user.name}} {{user.surname}}</span>

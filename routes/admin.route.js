@@ -34,12 +34,24 @@ router.post('/news', function(req, res) {
             author: req.body.author,
             body: format(req.body.body),
         };
-        var done = articles.create(article);
-        if (done) {
-            res.redirect('/news');
-        } else {
-            res.status(500).send('There was an error');
+        var path = '/news_images/news_image_' + Date.now() + '.jpeg';
+        var file = req.files.upload;
+        if (!file) {
+            res.status(400).send('No Image Found');
         }
+        file.mv('C:\\projects\\Coop\\public' + path, function(err) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                article.path = path;
+                var done = articles.create(article);
+                if (done) {
+                    res.redirect('/news');
+                } else {
+                    res.status(500).send('There was an error');
+                }
+            }
+        });
     } else {
         res.redirect('/login');
     }

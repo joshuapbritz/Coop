@@ -16,6 +16,8 @@ router.get('/', function(req, res, next) {
         recordsPerPage: 20,
         desc: true,
     });
+
+    data.records = data.records.reverse();
     res.render('news', { title: 'Latest News', data: data });
 });
 

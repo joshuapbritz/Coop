@@ -1,24 +1,24 @@
 <div class="pager">
     {{#if data.hasLast}}
     <a href="/news?page={{data.lastPage}}" class="last">
-    {{else}}
-    <a class="last disabled">
-    {{/if}}
-    <i class="material-icons">arrow_back</i>
-    </a>
-    {{#if data.hasNext}}
-    <a href="/news?page={{data.nextPage}}" class="next">
-    {{else}}
-    <a class="next disabled">
-    {{/if}}
-    <i class="material-icons">arrow_forward</i>
-    </a>
+        {{else}}
+        <a class="last disabled">
+            {{/if}}
+            <i class="material-icons">arrow_back</i>
+        </a>
+        {{#if data.hasNext}}
+        <a href="/news?page={{data.nextPage}}" class="next">
+            {{else}}
+            <a class="next disabled">
+                {{/if}}
+                <i class="material-icons">arrow_forward</i>
+            </a>
 </div>
 
 <div class="home-articles">
     {{#each data.records}}
     <div class="container">
-        <a href="/news/{{this.id}}" class="article-item" style="background-image:url('/images/art_1.jpeg')">
+        <a href="/news/{{this.id}}" class="article-item" style="background-image:url('{{this.path}}')">
             <div class="title">
                 <h2>{{this.title}}</h2>
             </div>
@@ -30,16 +30,16 @@
 <div class="pager">
     {{#if data.hasLast}}
     <a href="/news?page={{data.lastPage}}" class="last">
-    {{else}}
-    <a class="last disabled">
-    {{/if}}
-    <i class="material-icons">arrow_back</i>
-    </a>
-    {{#if data.hasNext}}
-    <a href="/news?page={{data.nextPage}}" class="next">
-    {{else}}
-    <a class="next disabled">
-    {{/if}}
-    <i class="material-icons">arrow_forward</i>
-    </a>
+        {{else}}
+        <a class="last disabled">
+            {{/if}}
+            <i class="material-icons">arrow_back</i>
+        </a>
+        {{#if data.hasNext}}
+        <a href="/news?page={{data.nextPage}}" class="next">
+            {{else}}
+            <a class="next disabled">
+                {{/if}}
+                <i class="material-icons">arrow_forward</i>
+            </a>
 </div>

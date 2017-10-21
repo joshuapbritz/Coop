@@ -4,12 +4,15 @@ var conf = require('./config');
 var bodyParser = require('body-parser');
 var expsession = require('express-session');
 var FileStore = require('session-file-store')(expsession);
+var fileupload = require('express-fileupload');
 
 // Initialize Express
 var app = express();
 
 // Manage CORS
 app.use(conf.cors);
+
+app.use(fileupload());
 
 app.use(
     expsession({
