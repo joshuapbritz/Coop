@@ -254,6 +254,7 @@
     justify-content: center;
     cursor: pointer;
     transform-origin: center center;
+    z-index: 400;
 
     &.open {
         right: 300px;
