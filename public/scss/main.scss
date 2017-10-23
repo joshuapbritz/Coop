@@ -107,7 +107,9 @@
     width: 100%;
     height: auto;
     padding: 10% 15%;
-    background-color: $accent;
+    // background-image: url('../images/quote_blur.jpeg');
+    // background-size: cover;
+    background-color: $backgroundDark;
 
     .card {
         width: 100%;
