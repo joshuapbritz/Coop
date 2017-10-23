@@ -11,13 +11,13 @@ router.get('/', function(req, res, next) {
     if (page) {
         number = page;
     }
-    var data = pager.paginate(db.find(), {
+    var data = pager.paginate(db.find().reverse(), {
         page: number,
-        recordsPerPage: 10,
+        recordsPerPage: 6,
         desc: true,
     });
 
-    data.records = data.records.reverse();
+    data.records = data.records;
     res.render('news', { title: 'Latest News', data: data });
 });
 
