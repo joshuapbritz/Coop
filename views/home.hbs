@@ -25,9 +25,11 @@
 </div>
 
 <div class="home-articles">
+    <h1 class="center-text">Latest News</h1>
+    <br>
     {{#each articles}}
     <div class="container">
-        <a href="/news/read/{{this._id}}" class="article-item" style="background-image:url('/images/art_1.jpeg')">
+        <a href="/news/read/{{this._id}}" class="article-item" style="background-image:url('{{this.path}}')">
             <div class="title">
                 <span>{{this.title}}</span>
             </div>

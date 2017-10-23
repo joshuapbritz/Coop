@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     }
     var data = pager.paginate(db.find(), {
         page: number,
-        recordsPerPage: 20,
+        recordsPerPage: 10,
         desc: true,
     });
 
