@@ -165,9 +165,49 @@
         right: -20px;
         border-radius: 50%;
     }
-    
+
     .heading {
         text-align: center;
         padding: 10px 0;
+    }
+}
+
+.action-card {
+    width: 80%;
+    height: auto;
+    position: relative;
+    margin: 40px auto;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75),
+        0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+
+    .title-image {
+        width: 100%;
+        min-height: 270px;
+        position: relative;
+
+        .card-image {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 250px;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: auto;
+        padding: 20px;
     }
 }

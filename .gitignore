@@ -62,4 +62,5 @@ database/data/
 
 # Sessions
 sessions/
+/session.code.txt
 
