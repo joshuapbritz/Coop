@@ -149,22 +149,6 @@
     }
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 300px;
-    background-color: $backgroundDark;
-
-    a {
-        color: #ffffff;
-        display: block;
-        padding: 15px;
-        text-align: center;
-    }
-}
-
 .course {
     padding: 40px 0;
 

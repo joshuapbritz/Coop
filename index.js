@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var expsession = require('express-session');
 var FileStore = require('session-file-store')(expsession);
 var fileupload = require('express-fileupload');
+var db = require('./database/dbo');
+var courses = db.connectTo('courses');
 
 // Initialize Express
 var app = express();
@@ -13,6 +15,11 @@ var app = express();
 app.use(conf.cors);
 
 app.use(fileupload());
+
+app.use(function(req, res, next) {
+    res.locals.courses = courses.find();
+    next();
+});
 
 app.use(
     expsession({

@@ -1,8 +1,10 @@
 <div class="container">
-    <ul class="list-group">
+    <ul class="list-group-info">
         {{#each courses}}
         <li>
-            <a href="/admin/courses/course/{{this._id}}">{{this.name}}</a>
+            <span>{{this.name}}</span>
+            <a href="/admin/courses/delete/{{this._id}}" class="">Delete</a>
+            <a href="/admin/courses/course/{{this._id}}">View</a>
         </li>
         {{/each}}
     </ul>

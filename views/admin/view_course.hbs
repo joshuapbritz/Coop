@@ -8,12 +8,13 @@
     </div>
     <div class="sub-courses">
             {{#each course.subCourses}}
-            <a href="{{this.link}}" target="_blank" class="info-card">
+            <div href="{{this.link}}" target="_blank" class="info-card">
+                <a href="/admin/courses/delete/{{../course._id}}/{{this.id}}" class="delete"><i class="material-icons">delete</i></a>
                 <div class="heading">
                     <h3>{{this.name}}</h>
                 </div>
-                <p>{{this.description}}</p>
-            </a>
+                <p>{{{this.description}}}</p>
+            </div>
             {{/each}}
     </div>
 </div>

@@ -159,11 +159,41 @@ router.post('/courses/:id/add', function(req, res) {
         var subcourse = {
             id: Date.now(),
             name: req.body.name,
-            description: req.body.description,
+            description: format(req.body.description),
             link: req.body.link,
         };
 
         course.subCourses.push(subcourse);
+        courses.update(id, course);
+
+        res.redirect('/admin/courses');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses/delete/:id', function(req, res) {
+    var id = Number(req.params.id);
+    if (auth.authorize(req.session.Uid)) {
+        
+        courses.delete(id);
+
+        res.redirect('/admin/courses');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses/delete/:id/:courseid', function(req, res) {
+    var id = Number(req.params.id);
+    var cid = Number(req.params.courseid);
+    if (auth.authorize(req.session.Uid)) {
+        var course = courses.findId(id);
+
+        var i = course.subCourses.findIndex(c => c.id === cid);
+
+        course.subCourses.splice(i, 1);
+
         courses.update(id, course);
 
         res.redirect('/admin/courses');

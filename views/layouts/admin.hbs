@@ -7,15 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MVC App</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <div class="sidebar" >
+    <div class="sidebar center-text">
+        <h1>{{user.name}} {{user.surname}}</h1>
+        <h3>{{user.email}}</h3>
         <div class="nav">
             <a href="/admin">Dashboard</a>
             <a href="/admin/news">News Updates</a>
             <a href="/admin/courses">Courses</a>
         </div>
+    </div>
+
+    <div class="sidebar-btn">
+        <i class="material-icons">arrow_back</i>
     </div>
     {{!All pages are rendered in this tag}} {{{body}}} {{!DO NOT REMOVE}}
 
