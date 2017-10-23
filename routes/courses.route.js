@@ -6,13 +6,16 @@ var db = database.connectTo('courses');
 // GET route for reading data
 router.get('/', function(req, res, next) {
     var courses = db.find();
-    res.render('courses/all', { courses: courses });
+    res.render('courses/all', {
+        courses: courses,
+        listings: res.locals.courses,
+    });
 });
 
 router.get('/:id', function(req, res, next) {
     var id = Number(req.params.id);
     var course = db.findOne(e => e._id === id);
-    res.render('courses/sub', { course: course });
+    res.render('courses/sub', { course: course, listings: res.locals.courses });
 });
 
 router.get('/:id/:courseid', function(req, res, next) {
@@ -23,6 +26,7 @@ router.get('/:id/:courseid', function(req, res, next) {
     res.render('courses/view', {
         course: subCourse,
         parent: { id: id, name: course.name },
+        listings: res.locals.courses,
     });
 });
 

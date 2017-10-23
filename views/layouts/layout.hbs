@@ -32,6 +32,9 @@
             <span>courses
                 <div class="dropdown">
                     <a href="/courses">all</a>
+                    {{#each listings}}
+                    <a href="/courses/{{this._id}}">{{this.name}}</a>
+                    {{/each}}
                     {{!--<a href="/courses/{id}">{name}</a>--}}
                 </div>
             </span>

@@ -9,11 +9,15 @@ router.get('/', function(req, res, next) {
         .find()
         .reverse()
         .slice(0, 3);
-    res.render('home', { title: 'Home', articles: news });
+    res.render('home', {
+        title: 'Home',
+        articles: news,
+        listings: res.locals.courses,
+    });
 });
 
 router.get('/icons', function(req, res, next) {
-    res.render('components');
+    res.render('components', { listings: res.locals.courses });
 });
 
 module.exports = router;
