@@ -1,7 +1,9 @@
-<div class="container">
-    <h1>{{data.title}}</h1>
-    <h2>by {{data.author}}</h2>
+<div class="article-image" style="background-image: url('{{data.path}}')"></div>
 
+<div class="container article">
+    <h1>{{data.title}}</h1>
+    <h3>by {{data.author}}</h3>
+    <hr>
     <article>
         {{{data.body}}}
     </article>
