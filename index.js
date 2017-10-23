@@ -17,7 +17,7 @@ app.use(conf.cors);
 app.use(fileupload());
 
 app.use(function(req, res, next) {
-    res.locals.courses = courses.find();
+    res.locals.courses = courses.find().slice(0, 5);
     next();
 });
 
