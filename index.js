@@ -47,7 +47,7 @@ app.use('/news', router.news);
 app.use('/admin', router.admin);
 app.use('/resources', router.resources);
 app.use('/teachers', router.teachers);
-app.use('/omnibus', router.omnibus);
+app.use('/courses', router.courses);
 
 // Start the server
 var port = process.env.PORT || 4500;

@@ -8,7 +8,7 @@ var admin = require('./routes/admin.route');
 var news = require('./routes/news.route');
 var resources = require('./routes/resources.route');
 var teachers = require('./routes/teachers.route');
-var omnibus = require('./routes/omnibus.route');
+var courses = require('./routes/courses.route');
 
 module.exports = {
     home: home,
@@ -21,5 +21,5 @@ module.exports = {
     admin: admin,
     resources: resources,
     teachers: teachers,
-    omnibus: omnibus,
+    courses: courses,
 };

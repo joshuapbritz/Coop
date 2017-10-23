@@ -9,6 +9,7 @@
 @import 'components/content';
 @import 'components/pages';
 @import 'components/cards';
+@import 'components/lists';
 
 .login {
     width: 100%;
@@ -158,5 +159,16 @@
 
     a {
         color: #ffffff;
+        display: block;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+.course {
+    padding: 40px 0;
+
+    h2 {
+        font-size: 1.8rem;
     }
 }

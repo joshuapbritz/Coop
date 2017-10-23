@@ -3,6 +3,7 @@ var router = express.Router();
 var database = require('../database/dbo');
 var db = database.connectTo('users');
 var articles = database.connectTo('articles');
+var courses = database.connectTo('courses');
 var fs = require('fs');
 var auth = require('../auth');
 
@@ -19,6 +20,19 @@ router.get('/', function(req, res, next) {
         res.render('admin/home', {
             layout: 'admin',
             title: 'Admin Home',
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/news', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        res.render('admin/news', {
+            layout: 'admin',
+            title: 'Admin News',
             user: user,
         });
     } else {
@@ -52,6 +66,107 @@ router.post('/news', function(req, res) {
                 }
             }
         });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var course = courses.find();
+        res.render('admin/courses', {
+            layout: 'admin',
+            title: 'Admin Courses',
+            courses: course,
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses/create', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        res.render('admin/create_course', {
+            layout: 'admin',
+            title: 'Admin Courses',
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses/course/:id', function(req, res, next) {
+    var id = Number(req.params.id);
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var course = courses.findId(id);
+        res.render('admin/view_course', {
+            layout: 'admin',
+            title: 'Admin Courses',
+            course: course,
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/courses/course/:id/add', function(req, res, next) {
+    var id = Number(req.params.id);
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var course = courses.findId(id);
+        res.render('admin/view_add_course', {
+            layout: 'admin',
+            title: 'Admin Courses',
+            course: course,
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+// Create a course
+router.post('/courses', function(req, res) {
+    if (auth.authorize(req.session.Uid)) {
+        var course = {
+            name: req.body.name,
+            gradeFrom: req.body.from_grade,
+            gradeTo: req.body.to_grade,
+            subCourses: [],
+        };
+        var created = courses.create(course);
+        if (created) {
+            res.redirect('/admin/courses');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.post('/courses/:id/add', function(req, res) {
+    var id = Number(req.params.id);
+    if (auth.authorize(req.session.Uid)) {
+        var course = courses.findId(id);
+
+        var subcourse = {
+            id: Date.now(),
+            name: req.body.name,
+            description: req.body.description,
+            link: req.body.link,
+        };
+
+        course.subCourses.push(subcourse);
+        courses.update(id, course);
+
+        res.redirect('/admin/courses');
     } else {
         res.redirect('/login');
     }

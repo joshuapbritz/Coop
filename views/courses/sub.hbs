@@ -1,0 +1,16 @@
+<div class="breadcrumbs">
+    <a href="/courses">courses</a>
+    <a href="/courses/{{course._id}}">{{course.name}}</a>
+</div>
+
+<div class="container course">
+    <h2>{{course.name}}</h2>
+
+    <ul class="list-group">
+        {{#each course.subCourses}}
+        <li>
+            <a href="/courses/{{../course/_id}}/{{this.id}}">{{this.name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

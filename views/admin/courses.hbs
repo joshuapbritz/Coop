@@ -1,0 +1,11 @@
+<div class="container">
+    <ul class="list-group">
+        {{#each courses}}
+        <li>
+            <a href="/admin/courses/course/{{this._id}}">{{this.name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+<a href="/admin/courses/create" class="fab">+ Add Course</a>

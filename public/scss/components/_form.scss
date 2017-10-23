@@ -4,6 +4,20 @@
     padding: 15px 5px;
 }
 
+select {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: solid 2px #bbb;
+    transition: ease 250ms;
+    font-size: 17px;
+    height: 40px;
+
+    &:focus {
+        border-color: map-get($themeColors, info);
+    }
+}
+
 input:not([type='checkbox']):not([type='radio']),
 textarea {
     display: block;
@@ -43,5 +57,4 @@ textarea {
 }
 
 .contact {
-    
 }

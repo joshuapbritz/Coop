@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="title">
+        <h1>Courses</h1>
+    </div>
+</div>
+<div class="container">
+    <ul class="list-group center-text">
+        {{#each courses}}
+        <li>
+            <a href="/courses/{{this._id}}">{{this.name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<br>

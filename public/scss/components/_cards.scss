@@ -138,3 +138,21 @@
         clear: both;
     }
 }
+
+.info-card {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75),
+        0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+    margin: 30px 0;
+    
+    .heading {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
