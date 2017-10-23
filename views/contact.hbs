@@ -1,28 +1,87 @@
-<div class="block">
-    <h1>
-        {{title}}
-    </h1>
-    <p>
-        This is the route you'll use for contact information
-    </p>
-</div>
+<div class="container">
+    <div class="title">
+        <h1>
+            {{title}}
+        </h1>
+    </div>
 
-<div class="login">
-    <div class="form">
-        <div class="control">
-            <input type="text" name="name" placeholder="Name">
+    <div class="row">
+        <div class="col-1-of-2">
+            <div class="center-text">
+                <h2>Contact Request</h2>
+            </div>
+            <div class="contact">
+                <form method="POST" action="/contact/email" class="form">
+                    <div class="control">
+                        <input type="text" required name="name" placeholder="Name (eg. John Doe)">
+                    </div>
+                    <div class="control">
+                        <input type="tel" required name="phone" placeholder="Phone Number">
+                    </div>
+                    <div class="control">
+                        <input type="email" required name="email" placeholder="Email">
+                    </div>
+                    <div class="control">
+                        <textarea name="message" placeholder="Optional Message"></textarea>
+                    </div>
+                    <div class="control center-text">
+                        <button type="submit" class="button info small">Send</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="control">
-            <input type="number" name="age" placeholder="Age">
-        </div>
-        <div class="control">
-            <input type="email" name="email" placeholder="Email">
-        </div>
-        <div class="control">
-            <textarea name="message" placeholder="Message"></textarea>
-        </div>
-        <div class="control center-text">
-            <button type="submit" class="button info small">Send</button>
+        <div class="col-1-of-2">
+            <div class="center-text">
+                <h2>Other Contact Info</h2>
+            </div>
+            <div class="contact-card">
+                <div class="avatar">
+                    <img src="/images/teacher_one.jpeg" alt="">
+                </div>
+                <div class="info">
+                    <h4>Robert Williams</h4>
+                    <span>
+                        <b>Email:</b>
+                        r.williams@email.com
+                    </span>
+                    <span>
+                        <b>Phone:</b>
+                        +(27)000000000
+                    </span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="avatar">
+                    <img src="/images/teacher_two.jpeg" alt="">
+                </div>
+                <div class="info">
+                    <h4>Jeff Gage</h4>
+                    <span>
+                        <b>Email:</b>
+                        j.gage@email.com
+                    </span>
+                    <span>
+                        <b>Phone:</b>
+                        +(27)000000000
+                    </span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="avatar">
+                    <img src="/images/teacher_three.jpeg" alt="">
+                </div>
+                <div class="info">
+                    <h4>John Doe</h4>
+                    <span>
+                        <b>Email:</b>
+                        j.doe@email.com
+                    </span>
+                    <span>
+                        <b>Phone:</b>
+                        +(27)000000000
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
