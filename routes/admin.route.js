@@ -55,10 +55,11 @@ router.post('/news', function(req, res) {
         if (!file) {
             res.status(400).send('No Image Found');
         }
-        file.mv('C:\\projects\\Coop\\public' + path, function(err) {
+        file.mv(__dirname.replace('routes', 'public') + path, function(err) {
             if (err) {
                 res.status(500).send(err);
             } else {
+                console.log(__dirname);
                 article.path = path;
                 var done = articles.create(article);
                 if (done) {
