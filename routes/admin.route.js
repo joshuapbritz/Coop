@@ -46,6 +46,8 @@ router.post('/news', function(req, res) {
         var article = {
             title: req.body.title,
             author: req.body.author,
+            published: new Date().toDateString(),
+            snippet: snippet(req.body.body),
             body: format(req.body.body),
         };
         var path = '/news_images/news_image_' + Date.now() + '.jpeg';
@@ -175,7 +177,6 @@ router.post('/courses/:id/add', function(req, res) {
 router.get('/courses/delete/:id', function(req, res) {
     var id = Number(req.params.id);
     if (auth.authorize(req.session.Uid)) {
-        
         courses.delete(id);
 
         res.redirect('/admin/courses');
@@ -204,6 +205,10 @@ router.get('/courses/delete/:id/:courseid', function(req, res) {
 
 function format(para) {
     return para.replace(/(.+)/gi, '<p>$1</p>');
+}
+
+function snippet(para) {
+    return para.slice(0, 250) + '...';
 }
 
 module.exports = router;
