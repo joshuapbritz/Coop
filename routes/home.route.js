@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     var news = db
         .find()
         .reverse()
-        .slice(0, 3);
+        .slice(0, 2);
     res.render('home', {
         title: 'Home',
         articles: news,
