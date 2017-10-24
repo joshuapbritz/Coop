@@ -1,7 +1,7 @@
 {
   "name": "grace_co-op",
   "version": "1.0.0",
-  "description": "",
+  "description": "Grace Classical Christian Co-op",
   "main": "index.js",
   "scripts": {
     "start": "node index",
