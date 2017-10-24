@@ -188,7 +188,7 @@
         justify-content: center;
         width: auto;
         height: 100%;
-        text-transform: lowercase;
+        text-transform: capitalize;
 
         &::before {
             content: '/';
