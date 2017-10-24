@@ -32,6 +32,12 @@
         padding: 1.5em 2.5em;
     }
 
+    &.just {
+        width: 95%;
+        text-align: center;
+        display: block;
+    }
+
     &:hover {
         background-color: #dddddd;
     }

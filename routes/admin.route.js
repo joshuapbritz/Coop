@@ -30,7 +30,22 @@ router.get('/', function(req, res, next) {
 router.get('/news', function(req, res, next) {
     if (auth.authorize(req.session.Uid)) {
         var user = db.findOne(e => e.password === req.session.Uid);
-        res.render('admin/news', {
+        var news = articles.find().reverse();
+        res.render('admin/articles/news', {
+            layout: 'admin',
+            title: 'Admin News',
+            user: user,
+            articles: news,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/news/create', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        res.render('admin/articles/create', {
             layout: 'admin',
             title: 'Admin News',
             user: user,
@@ -39,6 +54,59 @@ router.get('/news', function(req, res, next) {
         res.redirect('/login');
     }
 });
+
+router.get('/news/edit/:id', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var id = Number(req.params.id);
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var article = articles.findId(id);
+        article.body = article.body.replace(/<p>/gi, '');
+        article.body = article.body.replace(/<\/p>/gi, '');
+        res.render('admin/articles/create', {
+            layout: 'admin',
+            title: 'Admin News',
+            user: user,
+            article: article,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.post('/news/edit/:id', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var id = Number(req.params.id);
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var article = articles.findId(id);
+        article.title = req.body.title;
+        article.body = format(req.body.body);
+        article.snippet = snippet(req.body.body);
+        article.published = new Date().toDateString();
+        var saved = articles.update(id, article);
+        if (saved) {
+            res.redirect('/admin/news');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/news/delete/:id', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var id = Number(req.params.id);
+        var deleted = articles.delete(id);
+        if (deleted) {
+            res.redirect('/admin/news');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
 
 router.post('/news', function(req, res) {
     if (auth.authorize(req.session.Uid)) {
@@ -63,7 +131,7 @@ router.post('/news', function(req, res) {
                 article.path = path;
                 var done = articles.create(article);
                 if (done) {
-                    res.redirect('/news');
+                    res.redirect('/admin/news');
                 } else {
                     res.status(500).send('There was an error');
                 }
@@ -78,7 +146,7 @@ router.get('/courses', function(req, res, next) {
     if (auth.authorize(req.session.Uid)) {
         var user = db.findOne(e => e.password === req.session.Uid);
         var course = courses.find();
-        res.render('admin/courses', {
+        res.render('admin/courses/courses', {
             layout: 'admin',
             title: 'Admin Courses',
             courses: course,
@@ -92,7 +160,7 @@ router.get('/courses', function(req, res, next) {
 router.get('/courses/create', function(req, res, next) {
     if (auth.authorize(req.session.Uid)) {
         var user = db.findOne(e => e.password === req.session.Uid);
-        res.render('admin/create_course', {
+        res.render('admin/courses/create_course', {
             layout: 'admin',
             title: 'Admin Courses',
             user: user,
@@ -107,7 +175,7 @@ router.get('/courses/course/:id', function(req, res, next) {
     if (auth.authorize(req.session.Uid)) {
         var user = db.findOne(e => e.password === req.session.Uid);
         var course = courses.findId(id);
-        res.render('admin/view_course', {
+        res.render('admin/courses/view_course', {
             layout: 'admin',
             title: 'Admin Courses',
             course: course,
@@ -123,7 +191,7 @@ router.get('/courses/course/:id/add', function(req, res, next) {
     if (auth.authorize(req.session.Uid)) {
         var user = db.findOne(e => e.password === req.session.Uid);
         var course = courses.findId(id);
-        res.render('admin/view_add_course', {
+        res.render('admin/courses/view_add_course', {
             layout: 'admin',
             title: 'Admin Courses',
             course: course,
