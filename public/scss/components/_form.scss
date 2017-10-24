@@ -39,6 +39,10 @@ input:not([type='checkbox']):not([type='radio']) {
 textarea {
     height: 150px;
     resize: none;
+
+    &.editor {
+        height: 600px;
+    }
 }
 
 .reflect-input {

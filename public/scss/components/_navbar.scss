@@ -188,7 +188,7 @@
         justify-content: center;
         width: auto;
         height: 100%;
-        text-transform: lowercase;
+        text-transform: capitalize;
 
         &::before {
             content: '/';
@@ -254,6 +254,7 @@
     justify-content: center;
     cursor: pointer;
     transform-origin: center center;
+    z-index: 400;
 
     &.open {
         right: 300px;

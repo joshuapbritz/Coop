@@ -188,6 +188,10 @@
         min-height: 270px;
         position: relative;
 
+        @media screen and (max-width: 430px) {
+            min-height: 220px;
+        }
+
         .card-image {
             position: absolute;
             left: 50%;
@@ -196,6 +200,10 @@
             overflow: hidden;
             border-radius: 50%;
             width: 250px;
+
+            @media screen and (max-width: 430px) {
+                width: 90%;
+            }
 
             img {
                 width: 100%;
@@ -209,5 +217,129 @@
         width: 100%;
         height: auto;
         padding: 20px;
+    }
+}
+
+.card-square {
+    width: 90%;
+    margin: 80px auto;
+    height: auto;
+    position: relative;
+    border-radius: 15px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75),
+        0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+    display: block;
+    text-decoration: none;
+
+    .image-outer {
+        position: relative;
+        width: 100%;
+        height: 350px;
+
+        @media screen and (max-width: 880px) {
+            height: 320px;
+        }
+
+        .card-image {
+            width: 70%;
+            height: 350px;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            overflow: hidden;
+            border-radius: 12px;
+            transform: translateX(-50%);
+
+            @media screen and (max-width: 880px) {
+                height: 320px;
+                width: 90%;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+}
+
+.news-card {
+    width: 90%;
+    margin: 120px auto;
+    position: relative;
+    height: auto;
+    background-color: #ffffff;
+
+    .image-outer {
+        width: 50%;
+        height: 310px;
+        float: left;
+        position: relative;
+
+        @media screen and (max-width: 1000px) {
+            height: 250px;
+            width: 100%;
+        }
+
+        .card-image {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            height: 320px;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 15px;
+
+            @media screen and (max-width: 1200px) {
+                height: 270px;
+            }
+
+            @media screen and (max-width: 1000px) {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                height: 250px;
+            }
+            
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+
+    .content {
+        width: 50%;
+        min-height: 310px;
+        float: left;
+        padding: 10px 0;
+
+        p {
+            padding: 14px;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        z-index: -1;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        background-color: rgba(0, 0, 0, 0.4);
+        filter: blur(4px);
+    }
+
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
     }
 }

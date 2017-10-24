@@ -1,7 +1,7 @@
 {
-  "name": "95tees",
+  "name": "grace_co-op",
   "version": "1.0.0",
-  "description": "",
+  "description": "Grace Classical Christian Co-op",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -9,7 +9,7 @@
     "sass": "sass --w public/scss:public/css --style compressed",
     "type": "tsc --w public/ts/index.ts --outDir public/js --target ES5"
   },
-  "author": "",
+  "author": "Joshua Britz",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
@@ -19,6 +19,7 @@
     "express-fileupload": "^0.3.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "json2xls": "^0.1.2",
     "session-file-store": "^1.1.2"
   }
 }

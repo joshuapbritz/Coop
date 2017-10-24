@@ -229,3 +229,36 @@
     background-position: center center;
     position: static;
 }
+
+.nothing_found {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-weight: 700;
+        color: $blackHaze;
+
+        &::before {
+            content: '- ';
+        }
+
+        &::after {
+            content: ' -';
+        }
+    }
+}
+
+.copywrite {
+    padding: 20px;
+
+    ul {
+        display: block;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+}

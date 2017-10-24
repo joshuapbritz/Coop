@@ -53,3 +53,14 @@ hr {
 b {
     font-weight: 700 !important;
 }
+
+code {
+    width: auto;
+    height: auto;
+    padding: 7px 15px;
+    background-color: #eeeeee;
+    text-align: center;
+    display: inline-block;
+    user-select: all;
+    -moz-user-select: all;
+}

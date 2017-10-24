@@ -1,0 +1,20 @@
+<div class="container">
+    {{#each articles}}
+    <div class="info-card">
+        <a href="/admin/news/delete/{{this._id}}" class="delete">
+            <i class="material-icons">delete</i>
+        </a>
+        <div class="heading">
+            <h1>{{this.title}}</h1>
+            <h4>Author: <b>{{this.author}}</b></h4>
+            <h4>Date: <b>{{this.published}}</b></h4>
+        </div>
+        <p><b>Snippet:</b> {{this.snippet}}</p>
+        <div class="center-text">
+            <a href="/admin/news/edit/{{this._id}}" class="button info">View/Edit</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<a href="/admin/news/create" class="fab">+ Add An Article</a>

@@ -34,8 +34,8 @@
                     <a href="/courses">all</a>
                     {{#each listings}}
                     <a href="/courses/{{this._id}}">{{this.name}}</a>
-                    {{/each}}
-                    {{!--<a href="/courses/{id}">{name}</a>--}}
+                    {{/each}} {{!--
+                    <a href="/courses/{id}">{name}</a>--}}
                 </div>
             </span>
             {{!End Add course pages here}}
@@ -80,7 +80,8 @@
             </div>
         </div>
     </footer>
-    <div class="container padded center-text" style="padding: 20px;">
+    <hr>
+    <div class="container copywrite center-text">
         <h3>&copy; 2017 by Grace Classical Christian Co-op.</h3>
     </div>
 

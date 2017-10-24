@@ -14,13 +14,19 @@ var app = express();
 // Manage CORS
 app.use(conf.cors);
 
+// Allow the upload of images
 app.use(fileupload());
 
+// Add a list of courses to all routes for the dropdown menu
 app.use(function(req, res, next) {
-    res.locals.courses = courses.find();
+    var coursesListings = courses.find();
+    coursesListings.sort((a, b) => b.subCourses.length - a.subCourses.length);
+    // Perform Transforms on the Course dropdown here
+    res.locals.courses = coursesListings.slice(0, 4);
     next();
 });
 
+// Setup session storage
 app.use(
     expsession({
         secret: 'Ice Cream Is Happiness',

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="title">
+        <h1>{{course.name}}</h1>
+        <h4>
+            <span>Grade {{course.gradeFrom}} - </span>
+            <span>Grade {{course.gradeTo}}</span>
+        </h4>
+    </div>
+    <div class="sub-courses">
+            {{#each course.subCourses}}
+            <div href="{{this.link}}" target="_blank" class="info-card">
+                <a href="/admin/courses/delete/{{../course._id}}/{{this.id}}" class="delete"><i class="material-icons">delete</i></a>
+                <div class="heading">
+                    <h3>{{this.name}}</h>
+                </div>
+                <p>{{{this.description}}}</p>
+            </div>
+            {{/each}}
+    </div>
+</div>
+
+<a href="/admin/courses/course/{{course._id}}/add" class="fab">+ Add Sub Course</a>

@@ -1,0 +1,22 @@
+<div class="container">
+    {{#each courses}}
+    <div class="info-card">
+        <a href="/admin/courses/delete/{{this._id}}" class="delete"><i class="material-icons">delete</i></a>
+        <div class="heading">
+            <h1>{{this.name}}</h1>
+        </div>
+        <div class="center-text">
+            <a href="/admin/courses/course/{{this._id}}" class="button info">View</a>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+<a href="/admin/courses/create" class="fab">+ Add Course</a>
+
+{{!--
+<span></span>
+<a href="/admin/courses/delete/{{this._id}}" class="">Delete</a>
+<a href="/admin/courses/course/{{this._id}}">View</a>
+--}}
