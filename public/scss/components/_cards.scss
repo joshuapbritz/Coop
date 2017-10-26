@@ -56,6 +56,9 @@
         float: left;
         height: auto;
         padding: 20px;
+        p {
+            font-size: 20px;
+        }
 
         @media screen and (max-width: 850px) {
             width: 100%;
@@ -293,10 +296,8 @@
             overflow: hidden;
             width: 100%;
             border-radius: 15px;
-
-            @media screen and (max-width: 1200px) {
-                height: 270px;
-            }
+            background-size: cover;
+            background-position: center center;
 
             @media screen and (max-width: 1000px) {
                 left: 50%;
@@ -318,6 +319,12 @@
         min-height: 310px;
         float: left;
         padding: 10px 0;
+
+        @media screen and (max-width: 1000px) {
+            width: 90%;
+            float: unset;
+            margin: auto;
+        }
 
         p {
             padding: 14px;

@@ -33,9 +33,7 @@
         {{#each data.records}}
         <div class="news-card">
             <div class="image-outer">
-                <div class="card-image">
-                    <img src="{{this.path}}" alt="Image For {{this.title}}">
-                </div>
+                <div class="card-image" style="background-image:url('{{this.path}}')"></div>
             </div>
             <div class="content">
                 <h1>{{this.title}}</h1>
