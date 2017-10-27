@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "watch": "nodemon",
+    "watch": "nodemon | npm run sass",
     "sass": "sass --w public/scss:public/css --style compressed",
     "type": "tsc --w public/ts/index.ts --outDir public/js --target ES5"
   },

@@ -4,7 +4,11 @@ var auth = require('../auth');
 
 // Signup and Login routes
 router.get('/signup', function(req, res) {
-    res.render('account/signup', { layout: 'account' });
+    if (auth.authorize(req.session.Uid)) {
+        res.render('account/signup', { layout: 'account' });
+    } else {
+        res.redirect('/login');
+    }
 });
 
 router.post('/signup', function(req, res) {
@@ -30,13 +34,13 @@ router.post('/signup', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
+    req.session.destroy();
     res.render('account/login', { layout: 'account' });
 });
 
 router.post('/login', function(req, res) {
     var u = req.body.username;
     var p = req.body.password;
-
     var loggedIn = auth.login(u, p);
     if (loggedIn) {
         req.session.Uid = loggedIn.password;
