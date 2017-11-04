@@ -9,6 +9,7 @@ var news = require('./routes/news.route');
 var resources = require('./routes/resources.route');
 var teachers = require('./routes/teachers.route');
 var courses = require('./routes/courses.route');
+var events = require('./routes/events.route');
 
 module.exports = {
     home: home,
@@ -22,4 +23,5 @@ module.exports = {
     resources: resources,
     teachers: teachers,
     courses: courses,
+    events: events,
 };

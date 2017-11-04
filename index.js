@@ -61,6 +61,7 @@ app.use('/admin', router.admin);
 app.use('/resources', router.resources);
 app.use('/teachers', router.teachers);
 app.use('/courses', router.courses);
+app.use('/events', router.events);
 
 // Start the server
 var port = process.env.PORT || 4500;
