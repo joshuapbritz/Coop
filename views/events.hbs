@@ -5,11 +5,13 @@
     <ul class="event-list">
 
         {{!-- List Items --}}
+        {{#each events}}
         <li class="item">
-            <div class="title">Title</div>
-            <div class="teacher">Teacher's/Person in charge's Name</div>
-            <div class="date">Date of Event</div>
+            <div class="title">{{this.title}}</div>
+            <div class="teacher">{{this.person}}</div>
+            <div class="date">{{this.date}}</div>
         </li>
+        {{/each}}
 
     </ul>
     

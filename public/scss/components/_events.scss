@@ -1,32 +1,50 @@
 .event-list {
     // Styling for the container of the list 
-
+    padding: 30px 10px;
+    margin: 0;
+    list-style-type: none;
+    display: block;
 
     // Styling for the container of the list 
 
     .item {
         // Styling for the container of the individual list items 
-
-        
+      padding: 10px 0;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: $backgroundDark;
+      &::after{
+          content:'';
+          display: table;
+          clear: both;
+      }
         // Styling for the container of the individual list items
-
+        .title, .teacher, .date{
+            padding: unset;
+            color: $background;
+            width: calc(100%/3);
+            float: left;
+        }
         .title {
             // Styling for the title
-
-
+            font-size: 30px;
+            font-weight: bold;
             // Styling for the title
-        }
-
-        .teacher {
-            // Styling for the teacher name
-
-            // Styling for the teacher name
         }
 
         .date {
             // Styling for the date
-
+            font-size: 20px;
             // Styling for the date
         }
+
+        .teacher {
+            // Styling for the teacher name
+            
+            // Styling for the teacher name
+        }
+
     }
 }
