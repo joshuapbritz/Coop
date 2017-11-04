@@ -58,3 +58,49 @@
         }
     }
 }
+
+.events-list-group {
+    width: 100%;
+    height: auto;
+    display: block;
+    list-style-type: none;
+
+    li {
+        display: block;
+        height: auto;
+        width: 100%;
+        background-color: #eeeeee;
+        padding: 20px 0;
+        margin: 13px auto;
+
+        &:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            width: calc(100% / 4);
+            float: left;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.main {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            &.action {
+                a {
+                    color: tomato;
+                }
+            }
+        }
+    }
+}

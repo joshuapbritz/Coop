@@ -7,7 +7,9 @@ var db = database.connectTo('events');
 router.get('/', function(req, res, next) {
     res.render('events', {
         title: 'Events',
+        events: db.find(),
         listings: res.locals.courses,
     });
 });
+
 module.exports = router;
