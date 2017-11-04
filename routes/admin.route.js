@@ -4,6 +4,7 @@ var database = require('../database/dbo');
 var db = database.connectTo('users');
 var articles = database.connectTo('articles');
 var courses = database.connectTo('courses');
+var events = database.connectTo('events');
 var fs = require('fs');
 var auth = require('../auth');
 
@@ -106,7 +107,6 @@ router.get('/news/delete/:id', function(req, res, next) {
         res.redirect('/login');
     }
 });
-
 
 router.post('/news', function(req, res) {
     if (auth.authorize(req.session.Uid)) {
@@ -272,6 +272,69 @@ router.get('/courses/delete/:id/:courseid', function(req, res) {
     }
 });
 
+// Events
+router.get('/events', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        var event = events.find();
+        res.render('admin/events/events', {
+            layout: 'admin',
+            title: 'Admin Events',
+            events: event,
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/events/create', function(req, res, next) {
+    if (auth.authorize(req.session.Uid)) {
+        var user = db.findOne(e => e.password === req.session.Uid);
+        res.render('admin/events/create', {
+            layout: 'admin',
+            title: 'Admin Events',
+            user: user,
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.post('/events', function(req, res) {
+    if (auth.authorize(req.session.Uid)) {
+        var event = {
+            title: req.body.title,
+            person: req.body.orgainizer,
+            date: new Date(req.body.date).toDateString(),
+        };
+        var created = events.create(event);
+        if (created) {
+            res.redirect('/admin/events');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+router.get('/events/delete/:id', function(req, res) {
+    if (auth.authorize(req.session.Uid)) {
+        var id = Number(req.params.id);
+        var deleted = events.delete(id);
+        if (deleted) {
+            res.redirect('/admin/events');
+        } else {
+            res.status(500).send('There was an error');
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+// Helpers
 function format(para) {
     return para.replace(/(.+)/gi, '<p>$1</p>');
 }

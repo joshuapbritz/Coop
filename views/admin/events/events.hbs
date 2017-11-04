@@ -1,0 +1,17 @@
+<div class="container">
+    <ul class="events-list-group">
+        {{#each events}}
+        <li>
+            <div class="col main">
+                {{this.title}}
+            </div>
+
+            <div class="col">{{this.person}}</div>
+
+            <div class="col date">{{this.date}}</div>
+
+            <div class="col action"><a href="/courses/{{this._id}}">Remove</a></div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
